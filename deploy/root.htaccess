@@ -1,0 +1,22 @@
+# ============================================================
+# 共有サーバー web ルート（public_html）直下に置く .htaccess
+# アップロード時にファイル名を「.htaccess」にリネームすること
+# ============================================================
+RewriteEngine On
+# サブドメインのドキュメントルート直下に置く前提。基準パスを / に固定
+RewriteBase /
+
+# --- /api/* はバックエンド（Slim PHP）フロントコントローラへ ---
+# Slim のルートは /api 始まりなので REQUEST_URI はそのまま一致する
+RewriteRule ^api/ server/public/index.php [L]
+
+# --- 実在するファイルはそのまま配信 ---
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# --- /path → /path/index.html （trailingSlash:true の静的出力に対応）---
+RewriteCond %{REQUEST_FILENAME}/index.html -f
+RewriteRule ^(.*?)/?$ /$1/index.html [L]
+
+# --- 見つからない場合は静的 404 ---
+ErrorDocument 404 /404.html

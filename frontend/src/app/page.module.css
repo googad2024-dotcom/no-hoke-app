@@ -1,0 +1,26 @@
+.heroImage {
+  /* 高さは親の flex レイアウトに委ね、1画面に収める（min-height は下限のみ） */
+  min-height: 0;
+  position: relative;
+}
+/* 背景イラストは広いデスクトップのみ。タブレット/モバイルは <img> で縦積み表示 */
+@media (min-width: 1280px) {
+  .heroImage {
+    background-image: url("/images/s-001.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: auto 100%;
+  }
+}
+.subText {
+  position: absolute;
+  bottom: 30px;
+  color: #5d8eee;
+  font-size: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bg-gwhite {
+  background: #fbfdff;
+}

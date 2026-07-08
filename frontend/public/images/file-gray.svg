@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_レイヤー_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 18 18">
+  <!-- Generator: Adobe Illustrator 30.5.1, SVG Export Plug-In . SVG Version: 2.1.4 Build 3)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #676767;
+      }
+    </style>
+  </defs>
+  <path class="st0" d="M4,14h7v-2h-7v2ZM4,10h10v-2H4v2ZM4,6h10v-2H4v2ZM2,18c-.6,0-1-.2-1.4-.6s-.6-.9-.6-1.4V2c0-.6.2-1,.6-1.4.4-.4.9-.6,1.4-.6h14c.6,0,1,.2,1.4.6s.6.9.6,1.4v14c0,.6-.2,1-.6,1.4s-.9.6-1.4.6H2ZM2,16h14V2H2v14ZM2,2v14V2Z"/>
+</svg>

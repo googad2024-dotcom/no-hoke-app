@@ -1,0 +1,22 @@
+.bgImage {
+  background-image: url("/images/s-011.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+}
+
+/* SP時は画像を全体に敷き詰める */
+@media (max-width: 767px) {
+  .bgImage {
+    background-size: cover;
+  }
+}
+
+@keyframes bounceAround {
+  0% {
+    transform: translateY(0) scale(1.1, 0.9); /* 着地して少し横に潰れる */
+  }
+  100% {
+    transform: translateY(-20px) scale(1, 1); /* 空中に跳ね上がる */
+  }
+}

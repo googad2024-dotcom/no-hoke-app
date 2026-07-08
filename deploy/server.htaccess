@@ -1,0 +1,18 @@
+# ============================================================
+# バックエンド配置ディレクトリ public_html/server/ 直下に置く .htaccess
+# アップロード時にファイル名を「.htaccess」にリネームすること
+# 目的: .env など機微ファイルへの直接アクセスを遮断
+# ============================================================
+
+# .env 系ファイルを web から読めないようにする
+<FilesMatch "^\.env">
+  Require all denied
+</FilesMatch>
+
+# composer 定義ファイルも遮断
+<FilesMatch "^(composer\.(json|lock)|phpunit\.xml|phpcs\.xml)$">
+  Require all denied
+</FilesMatch>
+
+# ディレクトリ一覧表示を無効化
+Options -Indexes

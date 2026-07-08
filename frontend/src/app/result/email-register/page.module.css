@@ -1,0 +1,11 @@
+.meil-container {
+  width: 100%;
+  max-width: 700px;
+}
+
+.orign {
+  background: white;
+  padding: 2rem;
+  min-width: 400px;
+  border-radius: 20px;
+}

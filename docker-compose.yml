@@ -1,0 +1,47 @@
+# docker-compose.yml
+
+services:
+  frontend:
+    build:
+      context: ./docker/node
+    container_name: asset_frontend
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "3000:3000"
+    environment:
+      - WATCHPACK_POLLING=true
+      - CHOKIDAR_USEPOLLING=true
+    command: sh -c "npm install && npm run dev -- --webpack"
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./docker/php
+    container_name: asset_backend
+    working_dir: /var/www
+    volumes:
+      - ./backend:/var/www
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0
+    container_name: asset_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: xs899439_nohoke
+      MYSQL_USER: app
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
